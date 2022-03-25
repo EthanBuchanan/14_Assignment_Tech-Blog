@@ -1,41 +1,39 @@
 const router = require('express').Router();
-const withAuth = require("../utils/auth");
 
-router.get('/dashboard', withAuth , async (req, res) => {
+router.post('/api/login', async (req, res) => {
     try {
         
       // Pass serialized data and session flag into template
-      res.render('dashboard', { 
-        title: "Dashboard"
+      res.json( { 
+        message: "login successful"
       });
     } catch (err) {
       res.status(500).json(err);
     }
   });
 
-router.get('/dashboard/new_post', withAuth , async (req, res) => {
+router.post('/api/sign_up', async (req, res) => {
     try {
         
       // Pass serialized data and session flag into template
-      res.render('new_post', { 
-        title: "The Tech Blog"
+      res.json( { 
+        message: "sign up successful"
       });
     } catch (err) {
       res.status(500).json(err);
     }
   });
 
-  router.get('/dashboard/update_post/:post_id', withAuth , async (req, res) => {
+router.post('/api/log_out', async (req, res) => {
     try {
         
       // Pass serialized data and session flag into template
-      res.render('update_post', { 
-        title: "The Tech Blog"
+      res.json( { 
+        message: "log out successful"
       });
     } catch (err) {
       res.status(500).json(err);
     }
   });
-
 
 module.exports = router;

@@ -45,4 +45,16 @@ router.get('/', async (req, res) => {
     }
   });
 
+  router.get('/post/:post_id' , async (req, res) => {
+    try {
+        
+      // Pass serialized data and session flag into template
+      res.render('post', { 
+        title: "The Tech Blog"
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
 module.exports = router;
